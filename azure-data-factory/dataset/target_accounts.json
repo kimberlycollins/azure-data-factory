@@ -1,0 +1,15 @@
+{
+	"name": "target_accounts",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Salesforce_test",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SalesforceObject",
+		"schema": [],
+		"typeProperties": {
+			"objectApiName": "target_account__c"
+		}
+	}
+}
