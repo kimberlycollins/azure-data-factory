@@ -1,0 +1,22 @@
+{
+	"name": "target_accounts_destination",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "sheet1",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "target_accounts_sheet",
+				"folderPath": "salesforce",
+				"container": "adftutorial"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	}
+}
