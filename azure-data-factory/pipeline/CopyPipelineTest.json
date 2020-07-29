@@ -41,8 +41,7 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "country",
-									"type": "String"
+									"name": "Country"
 								},
 								"sink": {
 									"path": "$['Guy']"

@@ -1,0 +1,8 @@
+{
+	"name": "SalesforceObject1",
+	"properties": {
+		"annotations": [],
+		"type": "SalesforceObject",
+		"schema": []
+	}
+}
