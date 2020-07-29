@@ -19,6 +19,279 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "Id",
+				"type": "String"
+			},
+			{
+				"name": "OwnerId",
+				"type": "String"
+			},
+			{
+				"name": "IsDeleted",
+				"type": "String"
+			},
+			{
+				"name": "Name",
+				"type": "String"
+			},
+			{
+				"name": "CreatedDate",
+				"type": "String"
+			},
+			{
+				"name": "CreatedById",
+				"type": "String"
+			},
+			{
+				"name": "LastModifiedDate",
+				"type": "String"
+			},
+			{
+				"name": "LastModifiedById",
+				"type": "String"
+			},
+			{
+				"name": "SystemModstamp",
+				"type": "String"
+			},
+			{
+				"name": "LastActivityDate",
+				"type": "String"
+			},
+			{
+				"name": "LastViewedDate",
+				"type": "String"
+			},
+			{
+				"name": "LastReferencedDate",
+				"type": "String"
+			},
+			{
+				"name": "LinkedIn_Company_Profile_URL__c",
+				"type": "String"
+			},
+			{
+				"name": "Ticker__c",
+				"type": "String"
+			},
+			{
+				"name": "Past_1_Year_Employee_Growth_Rate__c",
+				"type": "String"
+			},
+			{
+				"name": "Business_Model__c",
+				"type": "String"
+			},
+			{
+				"name": "Company_Country__c",
+				"type": "String"
+			},
+			{
+				"name": "Ownership_Type__c",
+				"type": "String"
+			},
+			{
+				"name": "Relationship_Immediate_Parent__c",
+				"type": "String"
+			},
+			{
+				"name": "Company_HQ_Phone__c",
+				"type": "String"
+			},
+			{
+				"name": "Company_ID_Immediate_Parent__c",
+				"type": "String"
+			},
+			{
+				"name": "Est_Finance_Department_Budget_in_000s__c",
+				"type": "String"
+			},
+			{
+				"name": "Original_Seq__c",
+				"type": "String"
+			},
+			{
+				"name": "SF_Account_type__c",
+				"type": "String"
+			},
+			{
+				"name": "Employees__c",
+				"type": "String"
+			},
+			{
+				"name": "Company_State__c",
+				"type": "String"
+			},
+			{
+				"name": "Industry_Hierarchical_Category__c",
+				"type": "String"
+			},
+			{
+				"name": "NAICS_Code_1__c",
+				"type": "String"
+			},
+			{
+				"name": "Query_Name__c",
+				"type": "String"
+			},
+			{
+				"name": "SIC_Code_2__c",
+				"type": "String"
+			},
+			{
+				"name": "Company_Name__c",
+				"type": "String"
+			},
+			{
+				"name": "SIC_Codes__c",
+				"type": "String"
+			},
+			{
+				"name": "Est_HR_Department_Budget_in_000s__c",
+				"type": "String"
+			},
+			{
+				"name": "Employee_Range__c",
+				"type": "String"
+			},
+			{
+				"name": "Revenue_in_000s__c",
+				"type": "String"
+			},
+			{
+				"name": "NAICS_Codes__c",
+				"type": "String"
+			},
+			{
+				"name": "Website__c",
+				"type": "String"
+			},
+			{
+				"name": "Est_Marketing_Department_Budget_in_000__c",
+				"type": "String"
+			},
+			{
+				"name": "NAICS_Code_2__c",
+				"type": "String"
+			},
+			{
+				"name": "SIC_Code_1__c",
+				"type": "String"
+			},
+			{
+				"name": "Primary_Industry__c",
+				"type": "String"
+			},
+			{
+				"name": "ZoomInfo_Company_Profile_URL__c",
+				"type": "String"
+			},
+			{
+				"name": "Secondary_Industry_Hierarchical_Category__c",
+				"type": "String"
+			},
+			{
+				"name": "Company_Street_Address__c",
+				"type": "String"
+			},
+			{
+				"name": "Certified_Active_Company__c",
+				"type": "String"
+			},
+			{
+				"name": "Entity_Name_Immediate_Parent__c",
+				"type": "String"
+			},
+			{
+				"name": "Company_Zip_Code__c",
+				"type": "String"
+			},
+			{
+				"name": "Defunct_Company__c",
+				"type": "String"
+			},
+			{
+				"name": "Revenue_Range__c",
+				"type": "String"
+			},
+			{
+				"name": "Company_City__c",
+				"type": "String"
+			},
+			{
+				"name": "Company_ID_Ultimate_Parent__c",
+				"type": "String"
+			},
+			{
+				"name": "Web_Key__c",
+				"type": "String"
+			},
+			{
+				"name": "Secondary_Industry__c",
+				"type": "String"
+			},
+			{
+				"name": "Duplicate__c",
+				"type": "String"
+			},
+			{
+				"name": "Fax__c",
+				"type": "String"
+			},
+			{
+				"name": "Est_IT_Department_Budget_in_000s__c",
+				"type": "String"
+			},
+			{
+				"name": "Entity_Name_Ultimate_Parent__c",
+				"type": "String"
+			},
+			{
+				"name": "Past_2_Year_Employee_Growth_Rate__c",
+				"type": "String"
+			},
+			{
+				"name": "SF_or_ZoomInfo_Company_ID__c",
+				"type": "String"
+			},
+			{
+				"name": "Company_Is_Acquired__c",
+				"type": "String"
+			},
+			{
+				"name": "Marketing_Industry__c",
+				"type": "String"
+			},
+			{
+				"name": "Technologies__c",
+				"type": "String"
+			},
+			{
+				"name": "Competitor__c",
+				"type": "String"
+			},
+			{
+				"name": "Lead_Stage__c",
+				"type": "String"
+			},
+			{
+				"name": "Technology_Zoominfo__c",
+				"type": "String"
+			},
+			{
+				"name": "Priority__c",
+				"type": "String"
+			},
+			{
+				"name": "Priority_Desc__c",
+				"type": "String"
+			},
+			{
+				"name": "Notes__c",
+				"type": "String"
+			}
+		]
 	}
 }
