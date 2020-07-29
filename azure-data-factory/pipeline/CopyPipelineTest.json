@@ -46,6 +46,19 @@
 								"sink": {
 									"path": "$['Guy']"
 								}
+							},
+							{
+								"source": {
+									"name": ""
+								},
+								"sink": {
+									"path": "$['Column_1']"
+								}
+							},
+							{
+								"sink": {
+									"path": "$['Column_2']"
+								}
 							}
 						]
 					}
