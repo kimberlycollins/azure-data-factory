@@ -16,37 +16,24 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
-							"recursive": true
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
+						"type": "SalesforceSource",
+						"readBehavior": "query"
 					},
 					"sink": {
-						"type": "JsonSink",
+						"type": "DelimitedTextSink",
 						"storeSettings": {
 							"type": "AzureBlobStorageWriteSettings"
 						},
 						"formatSettings": {
-							"type": "JsonWriteSettings",
-							"quoteAllText": true
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
 						}
 					},
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
-							{
-								"source": {
-									"name": "Country"
-								},
-								"sink": {
-									"path": "$['Guy']"
-								}
-							},
 							{
 								"source": {
 									"name": ""
@@ -65,13 +52,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "InputDataset",
+						"referenceName": "target_accounts",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "OutputDataset",
+						"referenceName": "target_accounts_csv",
 						"type": "DatasetReference"
 					}
 				]
