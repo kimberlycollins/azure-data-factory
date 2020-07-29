@@ -35,7 +35,21 @@
 							"quoteAllText": true
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "country",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Guy']"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
