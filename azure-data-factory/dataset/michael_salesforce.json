@@ -1,8 +1,15 @@
 {
-	"name": "SalesforceObject1",
+	"name": "michael_salesforce",
 	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Salesforce_test",
+			"type": "LinkedServiceReference"
+		},
 		"annotations": [],
 		"type": "SalesforceObject",
-		"schema": []
+		"schema": [],
+		"typeProperties": {
+			"objectApiName": "Account"
+		}
 	}
 }
