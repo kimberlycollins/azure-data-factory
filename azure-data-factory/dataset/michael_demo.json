@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "target_accounts",
+				"fileName": "accounts",
 				"folderPath": "salesforce",
 				"container": "adftutorial"
 			},
