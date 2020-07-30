@@ -1,0 +1,551 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "sf_mt_test",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SalesforceSource",
+						"readBehavior": "query"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "MasterRecordId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "MasterRecordId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ParentId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ParentId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BillingStreet",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BillingStreet",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BillingCity",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BillingCity",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BillingState",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BillingState",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BillingPostalCode",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BillingPostalCode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BillingCountry",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BillingCountry",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BillingLatitude",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "BillingLatitude",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "BillingLongitude",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "BillingLongitude",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "BillingGeocodeAccuracy",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BillingGeocodeAccuracy",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ShippingStreet",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ShippingStreet",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ShippingCity",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ShippingCity",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ShippingState",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ShippingState",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ShippingPostalCode",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ShippingPostalCode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ShippingCountry",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ShippingCountry",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ShippingLatitude",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ShippingLatitude",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ShippingLongitude",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ShippingLongitude",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ShippingGeocodeAccuracy",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ShippingGeocodeAccuracy",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Phone",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Phone",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Website",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Website",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PhotoUrl",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PhotoUrl",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Industry",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Industry",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AnnualRevenue",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "AnnualRevenue",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "NumberOfEmployees",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "NumberOfEmployees",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "Description",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Rating",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Rating",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OwnerId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OwnerId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CreatedById",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LastModifiedById",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastActivityDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastActivityDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastViewedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastViewedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LastReferencedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastReferencedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Jigsaw",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Jigsaw",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "JigsawCompanyId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "JigsawCompanyId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AccountSource",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AccountSource",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SicDesc",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SicDesc",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ExternalId__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ExternalId__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Open_Ops_Value__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Open_Ops_Value__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Production_Deployments__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Production_Deployments__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Won_Revenue__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Won_Revenue__c",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Use_Case__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Use_Case__c",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LID__LinkedIn_Company_Id__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LID__LinkedIn_Company_Id__c",
+									"type": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "michael_salesforce",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "michael_demo",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
