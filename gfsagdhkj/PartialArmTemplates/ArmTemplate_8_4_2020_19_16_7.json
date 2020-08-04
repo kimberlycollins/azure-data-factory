@@ -6,653 +6,12 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "gfsagdhkj"
-		},
-		"AzureBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
-		},
-		"AzureSqlDatabase_internal_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase_internal'"
-		},
-		"PostgreSql_test_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'PostgreSql_test'"
-		},
-		"Salesforce_test_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'Salesforce_test'"
-		},
-		"Salesforce_test_securityToken": {
-			"type": "secureString",
-			"metadata": "Secure string for 'securityToken' of 'Salesforce_test'"
-		},
-		"Salesforce_test_properties_typeProperties_environmentUrl": {
-			"type": "string",
-			"defaultValue": "https://login.salesforce.com"
-		},
-		"Salesforce_test_properties_typeProperties_username": {
-			"type": "string",
-			"defaultValue": "guy@datalogue.io"
 		}
 	},
 	"variables": {
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase_internal')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureSqlDatabase_internal_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/PostgreSql_test')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "PostgreSql",
-				"typeProperties": {
-					"connectionString": "[parameters('PostgreSql_test_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Salesforce_test')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "Salesforce",
-				"typeProperties": {
-					"environmentUrl": "[parameters('Salesforce_test_properties_typeProperties_environmentUrl')]",
-					"username": "[parameters('Salesforce_test_properties_typeProperties_username')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('Salesforce_test_password')]"
-					},
-					"securityToken": {
-						"type": "SecureString",
-						"value": "[parameters('Salesforce_test_securityToken')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlTable1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabase_internal",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "master",
-					"table": "salesforce"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase_internal')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/InputDataset')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "south_american_capitals.csv",
-						"folderPath": "input",
-						"container": "adftutorial"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Input_two')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "capital_two.rtf",
-						"folderPath": "input",
-						"container": "adftutorial"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/OutputDataset')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Json",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "capital.json",
-						"folderPath": "output",
-						"container": "adftutorial"
-					}
-				},
-				"schema": {}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/PostgreSqlTable1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "PostgreSql_test",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "PostgreSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "public",
-					"table": "sensor-temp"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/PostgreSql_test')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/michael_demo')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "accounts",
-						"folderPath": "salesforce",
-						"container": "adftutorial"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/michael_salesforce')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Salesforce_test",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SalesforceObject",
-				"schema": [],
-				"typeProperties": {
-					"objectApiName": "Account"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Salesforce_test')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/salesforce_target_accounts')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "target_accounts",
-						"folderPath": "salesforce",
-						"container": "adftutorial"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Id",
-						"type": "String"
-					},
-					{
-						"name": "OwnerId",
-						"type": "String"
-					},
-					{
-						"name": "IsDeleted",
-						"type": "String"
-					},
-					{
-						"name": "Name",
-						"type": "String"
-					},
-					{
-						"name": "CreatedDate",
-						"type": "String"
-					},
-					{
-						"name": "CreatedById",
-						"type": "String"
-					},
-					{
-						"name": "LastModifiedDate",
-						"type": "String"
-					},
-					{
-						"name": "LastModifiedById",
-						"type": "String"
-					},
-					{
-						"name": "SystemModstamp",
-						"type": "String"
-					},
-					{
-						"name": "LastActivityDate",
-						"type": "String"
-					},
-					{
-						"name": "LastViewedDate",
-						"type": "String"
-					},
-					{
-						"name": "LastReferencedDate",
-						"type": "String"
-					},
-					{
-						"name": "LinkedIn_Company_Profile_URL__c",
-						"type": "String"
-					},
-					{
-						"name": "Ticker__c",
-						"type": "String"
-					},
-					{
-						"name": "Past_1_Year_Employee_Growth_Rate__c",
-						"type": "String"
-					},
-					{
-						"name": "Business_Model__c",
-						"type": "String"
-					},
-					{
-						"name": "Company_Country__c",
-						"type": "String"
-					},
-					{
-						"name": "Ownership_Type__c",
-						"type": "String"
-					},
-					{
-						"name": "Relationship_Immediate_Parent__c",
-						"type": "String"
-					},
-					{
-						"name": "Company_HQ_Phone__c",
-						"type": "String"
-					},
-					{
-						"name": "Company_ID_Immediate_Parent__c",
-						"type": "String"
-					},
-					{
-						"name": "Est_Finance_Department_Budget_in_000s__c",
-						"type": "String"
-					},
-					{
-						"name": "Original_Seq__c",
-						"type": "String"
-					},
-					{
-						"name": "SF_Account_type__c",
-						"type": "String"
-					},
-					{
-						"name": "Employees__c",
-						"type": "String"
-					},
-					{
-						"name": "Company_State__c",
-						"type": "String"
-					},
-					{
-						"name": "Industry_Hierarchical_Category__c",
-						"type": "String"
-					},
-					{
-						"name": "NAICS_Code_1__c",
-						"type": "String"
-					},
-					{
-						"name": "Query_Name__c",
-						"type": "String"
-					},
-					{
-						"name": "SIC_Code_2__c",
-						"type": "String"
-					},
-					{
-						"name": "Company_Name__c",
-						"type": "String"
-					},
-					{
-						"name": "SIC_Codes__c",
-						"type": "String"
-					},
-					{
-						"name": "Est_HR_Department_Budget_in_000s__c",
-						"type": "String"
-					},
-					{
-						"name": "Employee_Range__c",
-						"type": "String"
-					},
-					{
-						"name": "Revenue_in_000s__c",
-						"type": "String"
-					},
-					{
-						"name": "NAICS_Codes__c",
-						"type": "String"
-					},
-					{
-						"name": "Website__c",
-						"type": "String"
-					},
-					{
-						"name": "Est_Marketing_Department_Budget_in_000__c",
-						"type": "String"
-					},
-					{
-						"name": "NAICS_Code_2__c",
-						"type": "String"
-					},
-					{
-						"name": "SIC_Code_1__c",
-						"type": "String"
-					},
-					{
-						"name": "Primary_Industry__c",
-						"type": "String"
-					},
-					{
-						"name": "ZoomInfo_Company_Profile_URL__c",
-						"type": "String"
-					},
-					{
-						"name": "Secondary_Industry_Hierarchical_Category__c",
-						"type": "String"
-					},
-					{
-						"name": "Company_Street_Address__c",
-						"type": "String"
-					},
-					{
-						"name": "Certified_Active_Company__c",
-						"type": "String"
-					},
-					{
-						"name": "Entity_Name_Immediate_Parent__c",
-						"type": "String"
-					},
-					{
-						"name": "Company_Zip_Code__c",
-						"type": "String"
-					},
-					{
-						"name": "Defunct_Company__c",
-						"type": "String"
-					},
-					{
-						"name": "Revenue_Range__c",
-						"type": "String"
-					},
-					{
-						"name": "Company_City__c",
-						"type": "String"
-					},
-					{
-						"name": "Company_ID_Ultimate_Parent__c",
-						"type": "String"
-					},
-					{
-						"name": "Web_Key__c",
-						"type": "String"
-					},
-					{
-						"name": "Secondary_Industry__c",
-						"type": "String"
-					},
-					{
-						"name": "Duplicate__c",
-						"type": "String"
-					},
-					{
-						"name": "Fax__c",
-						"type": "String"
-					},
-					{
-						"name": "Est_IT_Department_Budget_in_000s__c",
-						"type": "String"
-					},
-					{
-						"name": "Entity_Name_Ultimate_Parent__c",
-						"type": "String"
-					},
-					{
-						"name": "Past_2_Year_Employee_Growth_Rate__c",
-						"type": "String"
-					},
-					{
-						"name": "SF_or_ZoomInfo_Company_ID__c",
-						"type": "String"
-					},
-					{
-						"name": "Company_Is_Acquired__c",
-						"type": "String"
-					},
-					{
-						"name": "Marketing_Industry__c",
-						"type": "String"
-					},
-					{
-						"name": "Technologies__c",
-						"type": "String"
-					},
-					{
-						"name": "Competitor__c",
-						"type": "String"
-					},
-					{
-						"name": "Lead_Stage__c",
-						"type": "String"
-					},
-					{
-						"name": "Technology_Zoominfo__c",
-						"type": "String"
-					},
-					{
-						"name": "Priority__c",
-						"type": "String"
-					},
-					{
-						"name": "Priority_Desc__c",
-						"type": "String"
-					},
-					{
-						"name": "Notes__c",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/target_accounts')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Salesforce_test",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SalesforceObject",
-				"schema": [],
-				"typeProperties": {
-					"objectApiName": "target_account__c"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Salesforce_test')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/target_accounts_csv')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "target_accounts",
-						"folderPath": "salesforce",
-						"container": "adftutorial"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/target_accounts_destination')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Excel",
-				"typeProperties": {
-					"sheetName": "sheet1",
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "target_accounts_sheet",
-						"folderPath": "salesforce",
-						"container": "adftutorial"
-					},
-					"firstRowAsHeader": true
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
 		{
 			"name": "[concat(parameters('factoryName'), '/pipeline2')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
@@ -1192,15 +551,13 @@
 						"inputs": [
 							{
 								"referenceName": "michael_salesforce",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "michael_demo",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
@@ -1868,15 +1225,13 @@
 						"inputs": [
 							{
 								"referenceName": "target_accounts",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "salesforce_target_accounts",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
@@ -1886,6 +1241,545 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/target_accounts')]",
 				"[concat(variables('factoryId'), '/datasets/salesforce_target_accounts')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase_internal",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "master",
+					"table": "salesforce"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Input_two')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "capital_two.rtf",
+						"folderPath": "input",
+						"container": "adftutorial"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/OutputDataset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "capital.json",
+						"folderPath": "output",
+						"container": "adftutorial"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/michael_demo')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "accounts",
+						"folderPath": "salesforce",
+						"container": "adftutorial"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/michael_salesforce')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Salesforce_test",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SalesforceObject",
+				"schema": [],
+				"typeProperties": {
+					"objectApiName": "Account"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Salesforce_test')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/salesforce_target_accounts')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "target_accounts",
+						"folderPath": "salesforce",
+						"container": "adftutorial"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Id",
+						"type": "String"
+					},
+					{
+						"name": "OwnerId",
+						"type": "String"
+					},
+					{
+						"name": "IsDeleted",
+						"type": "String"
+					},
+					{
+						"name": "Name",
+						"type": "String"
+					},
+					{
+						"name": "CreatedDate",
+						"type": "String"
+					},
+					{
+						"name": "CreatedById",
+						"type": "String"
+					},
+					{
+						"name": "LastModifiedDate",
+						"type": "String"
+					},
+					{
+						"name": "LastModifiedById",
+						"type": "String"
+					},
+					{
+						"name": "SystemModstamp",
+						"type": "String"
+					},
+					{
+						"name": "LastActivityDate",
+						"type": "String"
+					},
+					{
+						"name": "LastViewedDate",
+						"type": "String"
+					},
+					{
+						"name": "LastReferencedDate",
+						"type": "String"
+					},
+					{
+						"name": "LinkedIn_Company_Profile_URL__c",
+						"type": "String"
+					},
+					{
+						"name": "Ticker__c",
+						"type": "String"
+					},
+					{
+						"name": "Past_1_Year_Employee_Growth_Rate__c",
+						"type": "String"
+					},
+					{
+						"name": "Business_Model__c",
+						"type": "String"
+					},
+					{
+						"name": "Company_Country__c",
+						"type": "String"
+					},
+					{
+						"name": "Ownership_Type__c",
+						"type": "String"
+					},
+					{
+						"name": "Relationship_Immediate_Parent__c",
+						"type": "String"
+					},
+					{
+						"name": "Company_HQ_Phone__c",
+						"type": "String"
+					},
+					{
+						"name": "Company_ID_Immediate_Parent__c",
+						"type": "String"
+					},
+					{
+						"name": "Est_Finance_Department_Budget_in_000s__c",
+						"type": "String"
+					},
+					{
+						"name": "Original_Seq__c",
+						"type": "String"
+					},
+					{
+						"name": "SF_Account_type__c",
+						"type": "String"
+					},
+					{
+						"name": "Employees__c",
+						"type": "String"
+					},
+					{
+						"name": "Company_State__c",
+						"type": "String"
+					},
+					{
+						"name": "Industry_Hierarchical_Category__c",
+						"type": "String"
+					},
+					{
+						"name": "NAICS_Code_1__c",
+						"type": "String"
+					},
+					{
+						"name": "Query_Name__c",
+						"type": "String"
+					},
+					{
+						"name": "SIC_Code_2__c",
+						"type": "String"
+					},
+					{
+						"name": "Company_Name__c",
+						"type": "String"
+					},
+					{
+						"name": "SIC_Codes__c",
+						"type": "String"
+					},
+					{
+						"name": "Est_HR_Department_Budget_in_000s__c",
+						"type": "String"
+					},
+					{
+						"name": "Employee_Range__c",
+						"type": "String"
+					},
+					{
+						"name": "Revenue_in_000s__c",
+						"type": "String"
+					},
+					{
+						"name": "NAICS_Codes__c",
+						"type": "String"
+					},
+					{
+						"name": "Website__c",
+						"type": "String"
+					},
+					{
+						"name": "Est_Marketing_Department_Budget_in_000__c",
+						"type": "String"
+					},
+					{
+						"name": "NAICS_Code_2__c",
+						"type": "String"
+					},
+					{
+						"name": "SIC_Code_1__c",
+						"type": "String"
+					},
+					{
+						"name": "Primary_Industry__c",
+						"type": "String"
+					},
+					{
+						"name": "ZoomInfo_Company_Profile_URL__c",
+						"type": "String"
+					},
+					{
+						"name": "Secondary_Industry_Hierarchical_Category__c",
+						"type": "String"
+					},
+					{
+						"name": "Company_Street_Address__c",
+						"type": "String"
+					},
+					{
+						"name": "Certified_Active_Company__c",
+						"type": "String"
+					},
+					{
+						"name": "Entity_Name_Immediate_Parent__c",
+						"type": "String"
+					},
+					{
+						"name": "Company_Zip_Code__c",
+						"type": "String"
+					},
+					{
+						"name": "Defunct_Company__c",
+						"type": "String"
+					},
+					{
+						"name": "Revenue_Range__c",
+						"type": "String"
+					},
+					{
+						"name": "Company_City__c",
+						"type": "String"
+					},
+					{
+						"name": "Company_ID_Ultimate_Parent__c",
+						"type": "String"
+					},
+					{
+						"name": "Web_Key__c",
+						"type": "String"
+					},
+					{
+						"name": "Secondary_Industry__c",
+						"type": "String"
+					},
+					{
+						"name": "Duplicate__c",
+						"type": "String"
+					},
+					{
+						"name": "Fax__c",
+						"type": "String"
+					},
+					{
+						"name": "Est_IT_Department_Budget_in_000s__c",
+						"type": "String"
+					},
+					{
+						"name": "Entity_Name_Ultimate_Parent__c",
+						"type": "String"
+					},
+					{
+						"name": "Past_2_Year_Employee_Growth_Rate__c",
+						"type": "String"
+					},
+					{
+						"name": "SF_or_ZoomInfo_Company_ID__c",
+						"type": "String"
+					},
+					{
+						"name": "Company_Is_Acquired__c",
+						"type": "String"
+					},
+					{
+						"name": "Marketing_Industry__c",
+						"type": "String"
+					},
+					{
+						"name": "Technologies__c",
+						"type": "String"
+					},
+					{
+						"name": "Competitor__c",
+						"type": "String"
+					},
+					{
+						"name": "Lead_Stage__c",
+						"type": "String"
+					},
+					{
+						"name": "Technology_Zoominfo__c",
+						"type": "String"
+					},
+					{
+						"name": "Priority__c",
+						"type": "String"
+					},
+					{
+						"name": "Priority_Desc__c",
+						"type": "String"
+					},
+					{
+						"name": "Notes__c",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/target_accounts')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Salesforce_test",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SalesforceObject",
+				"schema": [],
+				"typeProperties": {
+					"objectApiName": "target_account__c"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Salesforce_test')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/target_accounts_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "target_accounts",
+						"folderPath": "salesforce",
+						"container": "adftutorial"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/target_accounts_destination')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Excel",
+				"typeProperties": {
+					"sheetName": "sheet1",
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "target_accounts_sheet",
+						"folderPath": "salesforce",
+						"container": "adftutorial"
+					},
+					"firstRowAsHeader": true
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Salesforce_test')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "Salesforce",
+				"typeProperties": {
+					"environmentUrl": "https://login.salesforce.com",
+					"username": "guy@datalogue.io",
+					"password": {
+						"type": "SecureString",
+						"value": "**********"
+					},
+					"securityToken": {
+						"type": "SecureString",
+						"value": "**********"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Salesforce')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "salesforce_pipeline",
+							"type": "PipelineReference"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 5,
+						"startTime": "2020-07-29T19:55:00.000Z",
+						"endTime": "2020-07-29T19:58:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/salesforce_pipeline')]"
 			]
 		},
 		{
@@ -1921,37 +1815,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/salesforce_target_accounts')]",
 				"[concat(variables('factoryId'), '/datasets/AzureSqlTable1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Salesforce')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "salesforce_pipeline",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 5,
-						"startTime": "2020-07-29T19:55:00.000Z",
-						"endTime": "2020-07-29T19:58:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/salesforce_pipeline')]"
 			]
 		}
 	]

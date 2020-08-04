@@ -11,9 +11,29 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		},
+		"AzureSqlDatabase_internal_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase_internal'"
+		},
 		"PostgreSql_test_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'PostgreSql_test'"
+		},
+		"Salesforce_test_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Salesforce_test'"
+		},
+		"Salesforce_test_securityToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'securityToken' of 'Salesforce_test'"
+		},
+		"Salesforce_test_properties_typeProperties_environmentUrl": {
+			"type": "string",
+			"defaultValue": "https://login.salesforce.com"
+		},
+		"Salesforce_test_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "guy@datalogue.io"
 		},
 		"containerUri": {
 			"type": "string",
@@ -45,8 +65,23 @@
 					"AzureBlobStorage1_connectionString": {
 						"value": "[parameters('AzureBlobStorage1_connectionString')]"
 					},
+					"AzureSqlDatabase_internal_connectionString": {
+						"value": "[parameters('AzureSqlDatabase_internal_connectionString')]"
+					},
 					"PostgreSql_test_connectionString": {
 						"value": "[parameters('PostgreSql_test_connectionString')]"
+					},
+					"Salesforce_test_password": {
+						"value": "[parameters('Salesforce_test_password')]"
+					},
+					"Salesforce_test_securityToken": {
+						"value": "[parameters('Salesforce_test_securityToken')]"
+					},
+					"Salesforce_test_properties_typeProperties_environmentUrl": {
+						"value": "[parameters('Salesforce_test_properties_typeProperties_environmentUrl')]"
+					},
+					"Salesforce_test_properties_typeProperties_username": {
+						"value": "[parameters('Salesforce_test_properties_typeProperties_username')]"
 					}
 				}
 			},
