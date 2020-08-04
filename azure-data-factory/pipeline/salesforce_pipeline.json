@@ -30,7 +30,624 @@
 							"fileExtension": ".txt"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Id"
+								}
+							},
+							{
+								"source": {
+									"name": "OwnerId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OwnerId"
+								}
+							},
+							{
+								"source": {
+									"name": "IsDeleted",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "IsDeleted"
+								}
+							},
+							{
+								"source": {
+									"name": "Name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Name"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "CreatedDate"
+								}
+							},
+							{
+								"source": {
+									"name": "CreatedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CreatedById"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastModifiedDate"
+								}
+							},
+							{
+								"source": {
+									"name": "LastModifiedById",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LastModifiedById"
+								}
+							},
+							{
+								"source": {
+									"name": "SystemModstamp",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "SystemModstamp"
+								}
+							},
+							{
+								"source": {
+									"name": "LastActivityDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastActivityDate"
+								}
+							},
+							{
+								"source": {
+									"name": "LastViewedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastViewedDate"
+								}
+							},
+							{
+								"source": {
+									"name": "LastReferencedDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LastReferencedDate"
+								}
+							},
+							{
+								"source": {
+									"name": "LinkedIn_Company_Profile_URL__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LinkedIn_Company_Profile_URL__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Ticker__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Ticker__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Past_1_Year_Employee_Growth_Rate__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Past_1_Year_Employee_Growth_Rate__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Business_Model__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Business_Model__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Company_Country__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Company_Country__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Ownership_Type__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Ownership_Type__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Relationship_Immediate_Parent__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Relationship_Immediate_Parent__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Company_HQ_Phone__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Company_HQ_Phone__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Company_ID_Immediate_Parent__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Company_ID_Immediate_Parent__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Est_Finance_Department_Budget_in_000s__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Est_Finance_Department_Budget_in_000s__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Original_Seq__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Original_Seq__c"
+								}
+							},
+							{
+								"source": {
+									"name": "SF_Account_type__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SF_Account_type__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Employees__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Employees__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Company_State__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Company_State__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Industry_Hierarchical_Category__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Industry_Hierarchical_Category__c"
+								}
+							},
+							{
+								"source": {
+									"name": "NAICS_Code_1__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "NAICS_Code_1__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Query_Name__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Query_Name__c"
+								}
+							},
+							{
+								"source": {
+									"name": "SIC_Code_2__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SIC_Code_2__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Company_Name__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Company_Name__c"
+								}
+							},
+							{
+								"source": {
+									"name": "SIC_Codes__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SIC_Codes__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Est_HR_Department_Budget_in_000s__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Est_HR_Department_Budget_in_000s__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Employee_Range__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Employee_Range__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Revenue_in_000s__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Revenue_in_000s__c"
+								}
+							},
+							{
+								"source": {
+									"name": "NAICS_Codes__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "NAICS_Codes__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Website__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Website__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Est_Marketing_Department_Budget_in_000__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Est_Marketing_Department_Budget_in_000__c"
+								}
+							},
+							{
+								"source": {
+									"name": "NAICS_Code_2__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "NAICS_Code_2__c"
+								}
+							},
+							{
+								"source": {
+									"name": "SIC_Code_1__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SIC_Code_1__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Primary_Industry__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Primary_Industry__c"
+								}
+							},
+							{
+								"source": {
+									"name": "ZoomInfo_Company_Profile_URL__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ZoomInfo_Company_Profile_URL__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Secondary_Industry_Hierarchical_Category__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Secondary_Industry_Hierarchical_Category__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Company_Street_Address__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Company_Street_Address__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Certified_Active_Company__c",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "Certified_Active_Company__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Entity_Name_Immediate_Parent__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Entity_Name_Immediate_Parent__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Company_Zip_Code__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Company_Zip_Code__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Defunct_Company__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Defunct_Company__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Revenue_Range__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Revenue_Range__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Company_City__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Company_City__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Company_ID_Ultimate_Parent__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Company_ID_Ultimate_Parent__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Web_Key__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Web_Key__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Secondary_Industry__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Secondary_Industry__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Duplicate__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Duplicate__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Fax__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Fax__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Est_IT_Department_Budget_in_000s__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Est_IT_Department_Budget_in_000s__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Entity_Name_Ultimate_Parent__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Entity_Name_Ultimate_Parent__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Past_2_Year_Employee_Growth_Rate__c",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "Past_2_Year_Employee_Growth_Rate__c"
+								}
+							},
+							{
+								"source": {
+									"name": "SF_or_ZoomInfo_Company_ID__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SF_or_ZoomInfo_Company_ID__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Company_Is_Acquired__c",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "Company_Is_Acquired__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Marketing_Industry__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Marketing_Industry__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Technologies__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Technologies__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Competitor__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Competitor__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Lead_Stage__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Lead_Stage__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Technology_Zoominfo__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Technology_Zoominfo__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Priority__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Priority__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Priority_Desc__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Priority_Desc__c"
+								}
+							},
+							{
+								"source": {
+									"name": "Notes__c",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Notes__c"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
@@ -40,57 +657,10 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "target_accounts_csv",
+						"referenceName": "salesforce_target_accounts",
 						"type": "DatasetReference"
 					}
 				]
-			},
-			{
-				"name": "dataflow2",
-				"type": "ExecuteDataFlow",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"dataflow": {
-						"referenceName": "dataflow2",
-						"type": "DataFlowReference"
-					},
-					"compute": {
-						"coreCount": 8,
-						"computeType": "General"
-					}
-				}
-			},
-			{
-				"name": "Lookup1",
-				"type": "Lookup",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "SalesforceSource",
-						"query": "select * from target_accounts where priority='1';",
-						"readBehavior": "query"
-					},
-					"dataset": {
-						"referenceName": "target_accounts",
-						"type": "DatasetReference"
-					}
-				}
 			}
 		],
 		"annotations": []
