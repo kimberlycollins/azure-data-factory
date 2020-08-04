@@ -1,0 +1,401 @@
+{
+	"name": "pipeline3",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SalesforceSource",
+						"readBehavior": "query"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"sink": {
+									"name": "Id"
+								}
+							},
+							{
+								"sink": {
+									"name": "OwnerId"
+								}
+							},
+							{
+								"sink": {
+									"name": "IsDeleted"
+								}
+							},
+							{
+								"sink": {
+									"name": "Name"
+								}
+							},
+							{
+								"sink": {
+									"name": "CreatedDate"
+								}
+							},
+							{
+								"sink": {
+									"name": "CreatedById"
+								}
+							},
+							{
+								"sink": {
+									"name": "LastModifiedDate"
+								}
+							},
+							{
+								"sink": {
+									"name": "LastModifiedById"
+								}
+							},
+							{
+								"sink": {
+									"name": "SystemModstamp"
+								}
+							},
+							{
+								"sink": {
+									"name": "LastActivityDate"
+								}
+							},
+							{
+								"sink": {
+									"name": "LastViewedDate"
+								}
+							},
+							{
+								"sink": {
+									"name": "LastReferencedDate"
+								}
+							},
+							{
+								"sink": {
+									"name": "LinkedIn_Company_Profile_URL__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Ticker__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Past_1_Year_Employee_Growth_Rate__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Business_Model__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Company_Country__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Ownership_Type__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Relationship_Immediate_Parent__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Company_HQ_Phone__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Company_ID_Immediate_Parent__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Est_Finance_Department_Budget_in_000s__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Original_Seq__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "SF_Account_type__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Employees__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Company_State__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Industry_Hierarchical_Category__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "NAICS_Code_1__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Query_Name__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "SIC_Code_2__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Company_Name__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "SIC_Codes__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Est_HR_Department_Budget_in_000s__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Employee_Range__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Revenue_in_000s__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "NAICS_Codes__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Website__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Est_Marketing_Department_Budget_in_000__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "NAICS_Code_2__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "SIC_Code_1__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Primary_Industry__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "ZoomInfo_Company_Profile_URL__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Secondary_Industry_Hierarchical_Category__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Company_Street_Address__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Certified_Active_Company__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Entity_Name_Immediate_Parent__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Company_Zip_Code__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Defunct_Company__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Revenue_Range__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Company_City__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Company_ID_Ultimate_Parent__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Web_Key__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Secondary_Industry__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Duplicate__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Fax__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Est_IT_Department_Budget_in_000s__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Entity_Name_Ultimate_Parent__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Past_2_Year_Employee_Growth_Rate__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "SF_or_ZoomInfo_Company_ID__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Company_Is_Acquired__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Marketing_Industry__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Technologies__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Competitor__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Lead_Stage__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Technology_Zoominfo__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Priority__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Priority_Desc__c"
+								}
+							},
+							{
+								"sink": {
+									"name": "Notes__c"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "target_accounts",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "salesforce_target_accounts",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
