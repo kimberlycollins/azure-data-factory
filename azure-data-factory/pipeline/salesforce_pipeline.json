@@ -13,7 +13,6 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
 				"typeProperties": {
 					"source": {
 						"type": "SalesforceSource",
@@ -645,7 +644,8 @@
 								"sink": {
 									"name": "Notes__c"
 								}
-							}
+							},
+							null
 						]
 					}
 				},
